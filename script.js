@@ -1,6 +1,3 @@
-const TABLE_COUNTRIES = 'table_countries'
-const TABLE_CELL = 'table_cell'
-
 const COUNTRIES_KEY = 'Countries'
 const COUNTRY_NAME_KEY = 'Country'
 const COUNTRY_CODE_KEY = 'CountryCode'
@@ -21,24 +18,12 @@ function createSortedList(json) {
 
 function renderTable(countries) {
   const table = document.createElement('table')
+  table.style.marginTop = window.innerHeight / 6 + 'px'
   table.setAttribute('id', 'table_countries')
   const bg = document.getElementById('bg')
   bg.appendChild(table)
   renderTableHeaders(table)
-
-  for (let i = 0; i < countries.length; i++) {
-    const row = table.insertRow()
-    const numberCell = createStyledCell(row)
-    const countryCell = createStyledCell(row)
-    const confirmedCell = createStyledCell(row)
-    const recoveredCell = createStyledCell(row)
-    const deathsCell = createStyledCell(row)
-    numberCell.appendChild(document.createTextNode(`${(i + 1)}.`))
-    countryCell.appendChild(document.createTextNode(countries[i][COUNTRY_NAME_KEY]));
-    appendNumber(confirmedCell, countries[i], CONFIRMED_KEY)
-    appendNumber(recoveredCell, countries[i], RECOVERED_KEY)
-    appendNumber(deathsCell, countries[i], DEATHS_KEY)
-  }
+  renderCountriesRows(countries, table)
 }
 
 function renderTableHeaders(table) {
@@ -61,9 +46,25 @@ function renderTableHeaders(table) {
   deathsCell.setAttribute('id', 'header_deaths')
 }
 
+function renderCountriesRows(countries, table) {
+  for (let i = 0; i < countries.length; i++) {
+      const row = table.insertRow()
+      const numberCell = createStyledCell(row)
+      const countryCell = createStyledCell(row)
+      const confirmedCell = createStyledCell(row)
+      const recoveredCell = createStyledCell(row)
+      const deathsCell = createStyledCell(row)
+      numberCell.appendChild(document.createTextNode(`${(i + 1)}.`))
+      countryCell.appendChild(document.createTextNode(countries[i][COUNTRY_NAME_KEY]))
+      appendNumber(confirmedCell, countries[i], CONFIRMED_KEY)
+      appendNumber(recoveredCell, countries[i], RECOVERED_KEY)
+      appendNumber(deathsCell, countries[i], DEATHS_KEY)
+    }
+  }  
+
 function createStyledCell(row) {
   const cell = row.insertCell()
-  cell.setAttribute('class', TABLE_CELL)
+  cell.setAttribute('class', 'table_cell')
   return cell
 }
 
