@@ -1,0 +1,41 @@
+body {
+  margin: 0px;
+  font-family: 'Open Sans';
+}
+
+#bg {
+   background-image: linear-gradient( 
+    to bottom right, #090024, #18005e
+  );
+}
+
+#title {
+  text-align: center;
+  color: white;
+  padding: 0px;
+  font-size: 40px;
+}
+
+#table_countries_bg {
+  margin: auto;  
+}
+
+#table_countries {
+  background-color: black;
+  color: white;
+  font-size: 28px;
+  width: 70%;
+  margin: auto;
+}
+
+#header_confirmed, #header_recovered, #header_deaths {
+ text-align: right; 
+}
+
+.table_countries_header {
+  padding: 20px;
+}
+
+.table_cell {
+  padding: 20px;
+}
