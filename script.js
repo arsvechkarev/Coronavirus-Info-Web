@@ -20,7 +20,11 @@ function createSortedList(json) {
 }
 
 function renderTable(countries) {
-  const table = document.getElementById(TABLE_COUNTRIES)
+  const table = document.createElement('table')
+  table.setAttribute('id', 'table_countries')
+  const bg = document.getElementById('bg')
+  bg.appendChild(table)
+  renderTableHeaders(table)
 
   for (let i = 0; i < countries.length; i++) {
     const row = table.insertRow()
@@ -35,6 +39,26 @@ function renderTable(countries) {
     appendNumber(recoveredCell, countries[i], RECOVERED_KEY)
     appendNumber(deathsCell, countries[i], DEATHS_KEY)
   }
+}
+
+function renderTableHeaders(table) {
+  const firstRow = table.insertRow()
+  firstRow.insertCell() // Empty cell
+  const countryNameCell = firstRow.insertCell()
+  const confirmedCell = firstRow.insertCell()
+  const recoveredCell = firstRow.insertCell()
+  const deathsCell = firstRow.insertCell()
+  countryNameCell.appendChild(document.createTextNode('Country'))
+  confirmedCell.appendChild(document.createTextNode('Confirmed'))
+  recoveredCell.appendChild(document.createTextNode('Recovered'))
+  deathsCell.appendChild(document.createTextNode('Deaths'))
+  countryNameCell.setAttribute('class', 'table_countries_header')
+  confirmedCell.setAttribute('class', 'table_countries_header')
+  recoveredCell.setAttribute('class', 'table_countries_header')
+  deathsCell.setAttribute('class', 'table_countries_header')
+  confirmedCell.setAttribute('id', 'header_confirmed')
+  recoveredCell.setAttribute('id', 'header_recovered')
+  deathsCell.setAttribute('id', 'header_deaths')
 }
 
 function createStyledCell(row) {
