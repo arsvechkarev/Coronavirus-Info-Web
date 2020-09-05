@@ -5,18 +5,28 @@ const CONFIRMED_KEY = 'TotalConfirmed'
 const RECOVERED_KEY = 'TotalRecovered'
 const DEATHS_KEY = 'TotalDeaths'
 
-setTimeout(startLoading, 300)
+requestData(300)
 
-function startLoading() {
-  fetch('https://api.covid19api.com/summary')
-  .then(string => string.json())
-  .then(json => {
-    renderWorldwideDiv(json)
-    return createSortedList(json)
-  })
-  .then(list => renderTable(list))
-  .then(_ => finishLoading())
-  .catch(reason => displayError(reason))
+function requestData(timeout) {
+  const errorDiv = document.getElementById('error')
+  if (errorDiv != null) {
+    errorDiv.style.display = 'none'
+  }
+  const progressbar = document.getElementById('progressbar')
+  if (progressbar != null) {
+    progressbar.style.display = 'block'
+  }
+  setTimeout(function () {
+    fetch('https://api.covid19api.com/summary')
+      .then(string => string.json())
+      .then(json => {
+        renderWorldwideDiv(json)
+        return createSortedList(json)
+      })
+      .then(list => renderTable(list))
+      .then(_ => finishLoading())
+      .catch(reason => displayError(reason));
+  }, timeout)
 }
 
 function renderWorldwideDiv(json) {
@@ -27,7 +37,7 @@ function renderWorldwideDiv(json) {
   document.getElementById('number_confirmed').innerHTML = confirmed.toLocaleString()
   document.getElementById('number_recovered').innerHTML = recovered.toLocaleString()
   document.getElementById('number_deaths').innerHTML = deaths.toLocaleString()
-  document.getElementById('worldwide_stats').style.visibility = 'visible'
+  document.getElementById('worldwide_stats').style.display = 'block'
 }
 
 function createSortedList(json) {
@@ -107,5 +117,7 @@ function finishLoading() {
 }
 
 function displayError(reason) {
+  document.getElementById('progressbar').style.display = 'none'
+  document.getElementById('error').style.display = 'block'
   console.log(reason)
 }

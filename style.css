@@ -17,6 +17,41 @@ body {
   font-size: 54px;
 }
 
+#progressbar {
+  margin-top: 50px;
+  padding: 10px;
+  text-align: center;
+}
+
+#error {
+  padding: 20px;
+  text-align: center;
+}
+
+#error p {
+  color: white;
+  font-size: 24px;
+  padding: 20px;
+}
+
+#error button {
+  outline: none;
+  background-color: #be2a2a;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 0 3px #be2a2a;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 60px;
+  padding: 10px 20px 10px;
+  transition: 0.3s;
+}
+
+#error button:hover {
+  background-color: #ff4949;
+  box-shadow: 0 0 3px #ff4949;
+}
+
 .content {
   opacity: 1;
   top: 0px;

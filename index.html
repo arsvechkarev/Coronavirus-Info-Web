@@ -12,6 +12,10 @@
 
 <body>
   <div id="title">Coronavirus statistics</div>
+  <div id="error">
+    <p>Oops! Something went wrong</p>
+    <button onclick="requestData(700)">Reload</button>
+  </div>
   <div id="progressbar">
     <div class="loadingio-spinner-eclipse-tjvso7ycmw">
       <div class="ldio-ei1bd21gfac">
@@ -38,11 +42,11 @@
 </body>
 
 <script>
+  document.getElementById('error').style.display = 'none'
   document.getElementById('content').classList.add('fade');
-  // Setting title margin top when window is ready 
   document.getElementById('title').style.marginTop = window.innerHeight / 7 + 'px'
   worldwideStatsDiv = document.getElementById('worldwide_stats')
-  worldwideStatsDiv.style.visibility = 'hidden  '
+  worldwideStatsDiv.style.display = 'none'
   worldwideStatsDiv.style.marginTop = window.innerHeight / 7 + 'px'
 </script>
 
