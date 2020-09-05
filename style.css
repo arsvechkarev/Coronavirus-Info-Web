@@ -17,7 +17,7 @@ body {
   text-align: center;
   color: black;
   padding: 0px;
-  font-size: 40px;
+  font-size: 54px;
 }
 
 #table_countries {
@@ -30,6 +30,30 @@ body {
   font-size: 28px;
   width: 80%;
   margin: auto;
+}
+
+#worldwide_stats {
+  padding: 12px;
+  background-color: white;
+  box-shadow: 0 0 8px #BBBBBB;
+  color: black;
+  border-radius: 40px;
+  font-size: 28px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.worldwide_stats_label {
+  padding: 15px 0px 8px 0px;
+  font-weight: 800;
+  font-size: 34px;
+}
+
+.worldwide_stats_number {
+  padding: 8px 0px 15px 0px;
+  font-size: 50px;
 }
 
 #header_confirmed, #header_recovered, #header_deaths {
