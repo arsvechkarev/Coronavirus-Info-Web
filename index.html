@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Coronavirus statistics</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
 </head>
@@ -12,28 +12,31 @@
 <body>
   <div id="bg">
     <div id="title">Coronavirus statistics</div>
-    <div id="worldwide_stats">
-      <div style="text-align: center;">
-        <div class="worldwide_stats_label">Confirmed</div>
-        <div class="worldwide_stats_number" id="number_confirmed">5654654</div>
-      </div>
-      <div style="text-align: center;">
-        <div class="worldwide_stats_label">Recovered</div>
-        <div class="worldwide_stats_number" id="number_recovered">5654654</div>
-      </div>
-      <div style="text-align: center;">
-        <div class="worldwide_stats_label">Deaths</div>
-        <div class="worldwide_stats_number" id="number_deaths">5654654</div>
+    <div id="content" class="content">
+      <div id="worldwide_stats">
+        <div style="text-align: center;">
+          <div class="worldwide_stats_label">Confirmed</div>
+          <div class="worldwide_stats_number" id="number_confirmed">5654654</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="worldwide_stats_label">Recovered</div>
+          <div class="worldwide_stats_number" id="number_recovered">5654654</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="worldwide_stats_label">Deaths</div>
+          <div class="worldwide_stats_number" id="number_deaths">5654654</div>
+        </div>
       </div>
     </div>
   </div>
-</body>
+</body> 
 
 <script>
+  document.getElementById('content').classList.add('fade');
   // Setting title margin top when window is ready 
   document.getElementById('title').style.marginTop = window.innerHeight / 7 + 'px'
   worldwideStatsDiv = document.getElementById('worldwide_stats')
-  worldwideStatsDiv.style.visibility = 'hidden'
+  worldwideStatsDiv.style.visibility = 'hidden  '
   worldwideStatsDiv.style.marginTop = window.innerHeight / 7 + 'px'
 </script>
 

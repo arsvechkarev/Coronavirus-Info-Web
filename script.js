@@ -12,6 +12,7 @@ fetch('https://api.covid19api.com/summary')
     return createSortedList(json)
   })
   .then(list => renderTable(list))
+  .then(_ => document.getElementById('content').classList.remove('fade'))
 
 function renderWorldwideDiv(json) {
   const global = json['Global']
@@ -34,8 +35,8 @@ function renderTable(countries) {
   const table = document.createElement('table')
   table.style.marginTop = window.innerHeight / 8 + 'px'
   table.setAttribute('id', 'table_countries')
-  const bg = document.getElementById('bg')
-  bg.appendChild(table)
+  const content = document.getElementById('content')
+  content.appendChild(table)
   renderTableHeaders(table)
   renderCountriesRows(countries, table)
 }

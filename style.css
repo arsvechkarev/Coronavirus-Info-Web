@@ -1,5 +1,4 @@
 html {
-  overflow: -moz-scrollbars-vertical; 
   overflow-y: scroll;
 }
 
@@ -20,13 +19,27 @@ body {
   font-size: 54px;
 }
 
+.content {
+  opacity: 1;
+  top: 0px;
+  position: relative;
+  transition: 1s opacity, 1s top;
+}
+
+.content.fade {
+  opacity: 0;
+  top: 50px;
+  position: relative;
+  transition: none;
+}
+
 #table_countries {
   padding: 12px;
   background-color: white;
   box-shadow: 0 0 8px #BBBBBB;
   color: black;
-  border-top-right-radius: 40px;
-  border-top-left-radius: 40px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
   font-size: 28px;
   width: 80%;
   margin: auto;
@@ -37,7 +50,7 @@ body {
   background-color: white;
   box-shadow: 0 0 8px #BBBBBB;
   color: black;
-  border-radius: 40px;
+  border-radius: 30px;
   font-size: 28px;
   width: 80%;
   margin: auto;
