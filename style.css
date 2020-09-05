@@ -6,15 +6,13 @@ body {
   margin: 0px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-}
-
-#bg {
-  background-color:  white;
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom right, #410c32, #38082a);
 }
 
 #title {
   text-align: center;
-  color: black;
+  color: white;
   padding: 0px;
   font-size: 54px;
 }
@@ -33,29 +31,41 @@ body {
   transition: none;
 }
 
-#table_countries {
-  padding: 12px;
-  background-color: white;
-  box-shadow: 0 0 8px #BBBBBB;
-  color: black;
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
-  font-size: 28px;
-  width: 80%;
-  margin: auto;
-}
-
 #worldwide_stats {
   padding: 12px;
-  background-color: white;
-  box-shadow: 0 0 8px #BBBBBB;
-  color: black;
+  background-color: #1f0317;
+  box-shadow: 0 0 8px #1f0317;
+  color: white;
   border-radius: 30px;
   font-size: 28px;
   width: 80%;
   margin: auto;
   display: flex;
   justify-content: space-around;
+}
+
+#number_confirmed {
+  color: #be2a2a;
+}
+
+#number_recovered {
+  color: #16a038;
+}
+
+#number_deaths {
+  color: #7e7e7e;
+}
+
+#table_countries {
+  padding: 12px;
+  background-color: #1f0317;
+  box-shadow: 0 0 8px #1f0317;
+  color: white;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  font-size: 26px;
+  width: 80%;
+  margin: auto;
 }
 
 .worldwide_stats_label {

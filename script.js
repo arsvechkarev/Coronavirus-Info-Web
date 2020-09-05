@@ -5,14 +5,19 @@ const CONFIRMED_KEY = 'TotalConfirmed'
 const RECOVERED_KEY = 'TotalRecovered'
 const DEATHS_KEY = 'TotalDeaths'
 
-fetch('https://api.covid19api.com/summary')
+setTimeout(startLoading, 300)
+
+function startLoading() {
+  fetch('https://api.covid19api.com/summary')
   .then(string => string.json())
   .then(json => {
     renderWorldwideDiv(json)
     return createSortedList(json)
   })
   .then(list => renderTable(list))
-  .then(_ => document.getElementById('content').classList.remove('fade'))
+  .then(_ => finishLoading())
+  .catch(reason => displayError(reason))
+}
 
 function renderWorldwideDiv(json) {
   const global = json['Global']
@@ -33,7 +38,7 @@ function createSortedList(json) {
 
 function renderTable(countries) {
   const table = document.createElement('table')
-  table.style.marginTop = window.innerHeight / 8 + 'px'
+  table.style.marginTop = window.innerHeight / 7 + 'px'
   table.setAttribute('id', 'table_countries')
   const content = document.getElementById('content')
   content.appendChild(table)
@@ -94,4 +99,13 @@ function appendNumber(cell, country, key) {
     text = '—\xa0\xa0\xa0\xa0'
   }
   cell.appendChild(document.createTextNode(text));
+}
+
+function finishLoading() {
+  document.getElementById('content').classList.remove('fade')
+  document.getElementById('progressbar').style.display = 'none'
+}
+
+function displayError(reason) {
+  console.log(reason)
 }
